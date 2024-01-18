@@ -1,0 +1,47 @@
+body {
+	padding: 10px;
+	margin-top: 5px;
+	background-color: whitesmoke;
+}
+.error-message {
+	background-color: rgb(196, 129, 129);
+	color: white;
+	margin-bottom: 10px;
+	padding: 10px;
+}
+
+.blogpost {
+	width: 75%;
+	margin-left: 12%;
+	background-color: #827f7f;
+	margin-top: 10px;
+	padding: 10px;
+}
+
+.blogtitle {
+	font-size: 24px;
+	margin-bottom: 10px;
+}
+
+.blogauthor {
+	font-size: 16px;
+	margin-bottom: 10px;
+}
+
+.blogdate {
+	color: white;
+	margin-top: 10px;
+}
+
+.count {
+	background-color: rgb(80, 56, 10);
+	font-size: 14px;
+	border-radius: 10px;
+	padding: 2px 8px;
+	font-style: normal;
+}
+
+.blogpostfooter {
+	display: flex;
+	column-gap: 25%;
+}
