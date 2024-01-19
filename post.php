@@ -48,13 +48,26 @@ if (isset($_GET['id'])) {
                 <div class="">By <?= $author ?></div>
                 <div><?= $post_body ?></div>
                 <div class="blogpostfooter">
-                    <?php if ($likes > 0) : ?>
-                        <a href="postlikes.php?id=<?= $post_id ?>">
+                    <div>
+                        <?php if (!has_user_liked_post($_SESSION['_user']['user_id'], $post_id)) : ?>
+                            <form method="POST" action="likepost.php">
+                                <input type="hidden" name="post_id" value="<?= $post_id ?>">
+                                <button type="submit">Like</button>
+                            </form>
+                        <?php else : ?>
+                            <form method="POST" action="likepost.php">
+                                <input type="hidden" name="post_id" value="<?= $post_id ?>">
+                                <button type="submit" disabled>Liked</button>
+                            </form>
                         <?php endif; ?>
-                        <span class=""><small><i class="count blogdate"><?= $likes ?></i> people like the blog.</small></span>
                         <?php if ($likes > 0) : ?>
-                        </a>
-                    <?php endif; ?>
+                            <a href="postlikes.php?id=<?= $post_id ?>">
+                            <?php endif; ?>
+                            <span class=""><small><i class="count blogdate"><?= $likes ?></i> people like the blog.</small></span>
+                            <?php if ($likes > 0) : ?>
+                            </a>
+                        <?php endif; ?>
+                    </div>
                     <?php if ($reads > 0) : ?>
                         <a href="postreads.php?id=<?= $post_id ?>">
                         <?php endif; ?>
