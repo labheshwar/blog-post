@@ -3,6 +3,10 @@ body {
     font-family: 'Arial', sans-serif;
 }
 
+a {
+    text-decoration: none;
+}
+
 header {
     background-color: #333;
     padding: 10px 0;
@@ -53,11 +57,18 @@ header {
 }
 
 .blogpost {
-    width: 75%;
-    margin-left: 12%;
-    background-color: #827f7f;
-    margin-top: 10px;
-    padding: 10px;
+    width: 70%;
+    margin: 0 auto;
+    background-color: #4a93af;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+}
+
+.blog-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 .blogtitle {
@@ -74,7 +85,6 @@ header {
 
 .blogdate {
     color: white;
-    margin-top: 10px;
 }
 
 .count {
@@ -87,5 +97,7 @@ header {
 
 .blogpostfooter {
     display: flex;
-    column-gap: 25%;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
 }
