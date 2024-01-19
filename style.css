@@ -1,7 +1,48 @@
 body {
-    padding: 10px;
-    margin-top: 5px;
-    background-color: whitesmoke;
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+header {
+    background-color: #333;
+    padding: 10px 0;
+}
+
+.header-menu {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 10px 20px;
+}
+
+.menu-item {
+    display: inline-block;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #fff;
+    transition: background-color 0.3s;
+    border-radius: 15px;
+}
+
+.menu-item:hover {
+    background-color: #555;
+}
+
+.login-menu-item {
+    margin-left: auto;
+    color: #fff;
+}
+
+.login-menu-item a {
+    text-decoration: none;
+    color: rgb(165, 218, 218);
+}
+
+.login-menu-item a:hover {
+    text-decoration: none;
+    color: rgb(123, 153, 153);
+    transition: color 0.3s;
 }
 
 .error-message {
@@ -14,7 +55,7 @@ body {
 .blogpost {
     width: 75%;
     margin-left: 12%;
-    background-color: #d55e5e;
+    background-color: #827f7f;
     margin-top: 10px;
     padding: 10px;
 }
