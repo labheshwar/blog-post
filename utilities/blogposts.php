@@ -64,8 +64,8 @@ function add_post($title,$text, $public){
         $user_id = $_SESSION['_user']['user_id'];
         $blog_post_title = $title;
         $blog_post_body = $text;
-        $post_public = $public;
-        $query = "INSERT INTO BlogPost (user_id, post_title, post_body post_public) VALUES (:user_id, :post_title, :post_body, :post_public)";
+        $post_public = $public ? "1" : "0";
+        $query = "INSERT INTO BlogPost (user_id, post_title, post_body, post_public) VALUES (:user_id, :post_title, :post_body, :post_public)";
         $statment = $db_connection->prepare($query);
     
         $statment->bindParam(":user_id", $user_id);
@@ -82,4 +82,39 @@ function add_post($title,$text, $public){
     
     
    
+}
+
+function get_blogpost_by_id($post_id) {
+    try {
+        $db_connection = db_connect();
+
+        $select_statement = "
+            SELECT
+                b.post_id,
+                b.user_id,
+                post_title,
+                post_body,
+                post_date,
+                user_full_name,
+                (SELECT COUNT(*) FROM BlogPostLikes WHERE post_id = b.post_id) as likes,
+                (SELECT COUNT(*) FROM BlogPostReads WHERE post_id = b.post_id) as _reads
+            FROM
+                BlogPost b
+                JOIN User u ON b.user_id = u.user_id
+            WHERE
+                b.post_id = :post_id";
+
+        $select_statement = $db_connection->prepare($select_statement);
+        $select_statement->bindParam(":post_id", $post_id);
+        
+        if ($select_statement->execute()) {
+            $blogpost = $select_statement->fetch(PDO::FETCH_ASSOC);
+            return $blogpost ? $blogpost : null;
+        } else {
+            return null;
+        }
+    } catch (PDOException $e) {
+        var_dump($e);
+        return null;
+    }
 }

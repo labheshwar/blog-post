@@ -1,5 +1,6 @@
 <?php
-$user = $_SESSION['_user'];
+
+$user = isset($_SESSION['_user']) ? $_SESSION['_user'] : null;
 if(isset($user)) {
     $login_menu_item = "Hello " . $user["user_full_name"] . ' (<a href="logout.php">Logout</a>)';
 }

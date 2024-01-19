@@ -3,6 +3,9 @@ session_start();
 
 require_once 'utilities/user.php';
 
+$user_name = "";
+$login_fail_message = ""; 
+
 if(isset($_POST['user-name'])) {
 	$user_name = $_POST['user-name'];
 	$user_pass = $_POST['user-pass'];

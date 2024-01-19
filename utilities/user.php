@@ -36,7 +36,10 @@ function do_login($user_name, $user_pass) {
 }
 
 function is_user_loggedin() {
-    session_start();
-	$user = $_SESSION["_user"];
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+    }
+
+    $user = isset($_SESSION["_user"]) ? $_SESSION["_user"] : null;
     return !empty($user);
 }
