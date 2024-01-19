@@ -118,3 +118,46 @@ function get_blogpost_by_id($post_id) {
         return null;
     }
 }
+
+function has_user_read_post($user_id, $post_id) {
+    try {
+        $db_connection = db_connect();
+
+        $select_statement = "
+            SELECT COUNT(*) as count
+            FROM BlogPostReads
+            WHERE user_id = :user_id AND post_id = :post_id";
+
+        $select_statement = $db_connection->prepare($select_statement);
+        $select_statement->bindParam(":user_id", $user_id);
+        $select_statement->bindParam(":post_id", $post_id);
+
+        if ($select_statement->execute()) {
+            $result = $select_statement->fetch(PDO::FETCH_ASSOC);
+            return $result['count'] > 0;
+        } else {
+            return false;
+        }
+    } catch (PDOException $e) {
+        var_dump($e);
+        return false;
+    }
+}
+
+function add_user_to_read($user_id, $post_id) {
+    try {
+        $db_connection = db_connect();
+
+        $insert_statement = "
+            INSERT INTO BlogPostReads (user_id, post_id)
+            VALUES (:user_id, :post_id)";
+
+        $insert_statement = $db_connection->prepare($insert_statement);
+        $insert_statement->bindParam(":user_id", $user_id);
+        $insert_statement->bindParam(":post_id", $post_id);
+
+        $insert_statement->execute();
+    } catch (PDOException $e) {
+        var_dump($e);
+    }
+}
