@@ -59,7 +59,7 @@ header {
 .blogpost {
     width: 70%;
     margin: 0 auto;
-    background-color: #4a93af;
+    background-color: darkcyan;
     padding: 30px;
     border-radius: 20px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
@@ -75,6 +75,13 @@ header {
     font-size: 24px;
     margin-bottom: 10px;
     color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.blogtitle p {
+    font-size: 12px;
 }
 
 .blogauthor {
@@ -88,11 +95,12 @@ header {
 }
 
 .count {
-    background-color: rgb(80, 56, 10);
+    background-color: darkcyan;
     font-size: 14px;
     border-radius: 10px;
     padding: 2px 8px;
     font-style: normal;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
 .blogpostfooter {
@@ -100,4 +108,43 @@ header {
     justify-content: space-between;
     align-items: center;
     margin-top: 20px;
+}
+
+.post-section {
+    margin: 20px 12%;
+}
+
+.title-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.title-wrapper p {
+    font-size: 14px;
+}
+
+.post-like {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.blogpostfooter a {
+    color: darkcyan;
+}
+
+.blogpostfooter button {
+    padding: 5px 15px;
+    background-color: darkcyan;
+    color: white;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.blogpostfooter button:disabled {
+    background-color: rgb(143, 197, 197);
+    cursor: default;
 }

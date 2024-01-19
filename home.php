@@ -43,9 +43,9 @@ $blogposts = get_all_posts();
 					$post_date = date_format($post_date, "jS, F, Y.");
 			?>
 					<section class="blogpost">
-						<div class="blogtitle"><?= $post_title ?></div>
-						<div class="blogauthor">By <?= $author ?></div>
-						<div><?= $post_body ?>. <a style="color: white; text-decoration: underline; font-size: 12px;" href="post.php?id=<?= $post_id ?>">read more...</a></div>
+						<div class="blogtitle"><?= $post_title ?> <p class="blogauthor">By <?= $author ?></p>
+						</div>
+						<div style="color: #dff1f1;"><?= $post_body ?>. <a style="color: white; text-decoration: underline; font-size: 12px;" href="post.php?id=<?= $post_id ?>">read more...</a></div>
 						<div class="blogpostfooter">
 							<!-- Note: Never expose database ids in urls -->
 							<?php if ($likes > 0) : ?>

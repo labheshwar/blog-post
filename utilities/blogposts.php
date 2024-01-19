@@ -119,7 +119,7 @@ function get_blogpost_by_id($post_id) {
     }
 }
 
-function has_user_read_post($user_id, $post_id) {
+function already_read($user_id, $post_id) {
     try {
         $db_connection = db_connect();
 
@@ -144,7 +144,7 @@ function has_user_read_post($user_id, $post_id) {
     }
 }
 
-function add_user_to_read($user_id, $post_id) {
+function mark_as_read($user_id, $post_id) {
     try {
         $db_connection = db_connect();
 
@@ -162,7 +162,7 @@ function add_user_to_read($user_id, $post_id) {
     }
 }
 
-function has_user_liked_post($user_id, $post_id) {
+function already_liked($user_id, $post_id) {
     try {
         $db_connection = db_connect();
 
@@ -186,7 +186,7 @@ function has_user_liked_post($user_id, $post_id) {
     }
 }
 
-function add_user_to_like($user_id, $post_id) {
+function like_post($user_id, $post_id) {
     try {
         $db_connection = db_connect();
 
