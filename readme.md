@@ -1,4 +1,9 @@
-# Blogging Platform
+# Blog Post
+
+## Submission Details
+
+- **Submitted By:** LABHESHWAR
+- **Submitted To:** Dr. Gulsher Laghari
 
 ## Overview
 
