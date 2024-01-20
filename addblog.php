@@ -10,7 +10,7 @@ $text = '';
 
 if (!is_user_loggedin()) {
     header("Location: index.php");
-    exit(); // Always exit after sending a header redirect
+    exit();
 }
 
 if(isset($_POST["blog-title"]) && isset($_POST["blog-text"])) {
@@ -44,7 +44,7 @@ if(isset($_POST["blog-title"]) && isset($_POST["blog-text"])) {
     endif;
     ?>
 
-    <div style="text-align: center">
+    <div class="add-blog-main">
         <h1>Create a Blog</h1>
         
         <?php if($login_fail_message):?>
@@ -62,9 +62,9 @@ if(isset($_POST["blog-title"]) && isset($_POST["blog-text"])) {
                     <textarea name="blog-text" required><?=$text?></textarea>
                 </label>
             </div>
-            <div>
-                <input type="submit" value="Publish" name="publish" />
-                <input type="submit" value="Save" name="save-button" />
+            <div class="add-blog-footer">
+                <button type="submit" value="Publish" name="publish">Publish</button>
+                <button type="submit" value="Save" name="save-button">Save</button>
             </div>
         </form>
     </div>

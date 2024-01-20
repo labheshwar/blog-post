@@ -21,6 +21,31 @@ function get_all_posts() {
     }
 }
 
+function get_all_posts_by_user_id($user_id) {
+    try {
+        $db_connection = db_connect();
+
+        $select_statement = "
+        SELECT DISTINCT b.post_id, b.user_id, post_title, SUBSTRING(post_body, 1, 150) as post_body, post_date, user_full_name, (SELECT COUNT(*) FROM BlogPostLikes WHERE post_id = b.post_id) as likes, (SELECT COUNT(*) FROM BlogPostReads WHERE post_id = b.post_id) as _reads 
+        FROM BlogPost b 
+        JOIN User u ON b.user_id = u.user_id 
+        LEFT JOIN BlogPostLikes bl ON bl.post_id = b.post_id 
+        LEFT JOIN BlogPostReads br ON br.post_id = b.post_id 
+        WHERE b.post_public = 1 AND b.user_id = :user_id";
+
+        $select_statement = $db_connection->prepare($select_statement);
+        $select_statement->bindParam(":user_id", $user_id);
+
+        $select_statement->execute();
+        $blogposts = $select_statement->fetchAll(PDO::FETCH_ASSOC);
+
+        return !empty($blogposts) ? $blogposts : null;
+    } catch (PDOException $e) {
+        var_dump($e);
+        return null;
+    }
+}
+
 function get_users_who_like($post_id) {
     $select_statment = "
         SELECT u.user_full_name FROM BlogPostLikes b JOIN User u ON b.user_id = u.user_id WHERE post_id = :post_id;";

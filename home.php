@@ -43,7 +43,7 @@ $blogposts = get_all_posts();
 					$post_date = date_format($post_date, "jS, F, Y.");
 			?>
 					<section class="blogpost">
-						<div class="blogtitle"><?= $post_title ?> <p class="blogauthor">By <?= $author ?></p>
+						<div class="blogtitle"><?= $post_title ?> <p class="blogauthor">By <a style="color: lightcyan; cursor: pointer; text-decoration: underline;" href="userprofile.php?id=<?= $blogpost['user_id'] ?>"><?= $author ?></a></p>
 						</div>
 						<div style="color: #dff1f1;"><?= $post_body ?>. <a style="color: white; text-decoration: underline; font-size: 12px;" href="post.php?id=<?= $post_id ?>">read more...</a></div>
 						<div class="blogpostfooter">

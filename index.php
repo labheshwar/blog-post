@@ -28,7 +28,7 @@ if(isset($_POST['user-name'])) {
 	</head>
 	<body>
 		<?php include "header.php";?>
-		<div style="text-align: center">
+		<div class="login-main">
 			<h1>Login Form</h1>
 			<?php if($login_fail_message):?>
 			<div class="error-message"><?=$login_fail_message;?></div>
@@ -48,7 +48,7 @@ if(isset($_POST['user-name'])) {
 					</label>
 				</div>
 				<div>
-					<input type="submit" value="Submit" />
+					<button type="submit" value="Submit">Login</button>
 				</div>
 			</form>
 		</div>
